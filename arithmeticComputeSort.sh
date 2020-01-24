@@ -1,5 +1,6 @@
 #!/bin/bash -x
 count=0
+
 read -p "First input: " a
 read -p "Second input:" b
 read -p "Third input:" c
@@ -17,6 +18,8 @@ do
 done
 echo ${array[@]}
 
+
+#Descending
 for ((i=0; i<3;i++))
 do
 	for((j=i+1;j<4;j++))
@@ -29,6 +32,22 @@ do
 		fi
 	done
 done
+echo ${array[@]}
+
+#Ascending
+for((i=0;i<3;i++))
+do
+   for((j=i+1;j<4;j++))
+   do
+      if [[ ${array[i]%.*} -gt ${array[j]%.*} ]]
+      then
+         temp=${array[i]}
+         array[i]=${array[j]}
+         array[j]=$temp
+      fi
+   done
+done
+
 echo ${array[@]}
 
 
